@@ -1,0 +1,31 @@
+{
+  "$schema": "../packfile.schema.json",
+  "_pf_version": "v0",
+  "loader": 1,
+  "meta": {
+    "name": "Example Modpack",
+    "description": "This modpack is just an example",
+    "author": "ExampleMan",
+    "version": "1.0.0"
+  },
+  "mods": [
+    {
+      "download": "https://example.org/mods/Mod1.jar",
+      "meta": {
+        "name": "Mod1",
+        "author": "ModAuthor",
+        "description": "Test mod!",
+        "version": "3.2.1-beta"
+      }
+    },
+    {
+      "download": "https://example.org/mods/Mod2.jar",
+      "meta": {
+        "name": "Mod2",
+        "author": "MobAuthor",
+        "description": "Test mod 2!",
+        "version": "1.0.3-alpha"
+      }
+    }
+  ]
+}

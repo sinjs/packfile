@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://raw.githubusercontent.com/sinjs/packfile/master/packfile.schema.json",
+  "title": "Packfile",
+  "description": "A Packfile",
+  "type": "object",
+  "properties": {
+    "_pf_version": {
+      "description": "The spec version of the Packfile",
+      "type": "string"
+    },
+    "meta": {
+      "$ref": "#/$defs/metadata"
+    },
+    "mods": {
+      "description": "The mods contained in a modpack",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/mod"
+      }
+    },
+    "loader": {
+      "description": "The modloader used, 0 = Fabric, 1 = Forge, 2 = Quilt",
+      "type": "number",
+      "enum": [0, 1, 2]
+    }
+  },
+  "required": ["_pf_version", "meta", "mods", "loader"],
+  "$defs": {
+    "metadata": {
+      "description": "Metadata of an item",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "icon": {
+          "description": "The URL to the icon in png format",
+          "type": "string"
+        },
+        "version": {
+          "$ref": "#/$defs/version"
+        }
+      },
+      "required": ["name", "description", "author", "version"]
+    },
+    "version": {
+      "description": "Version specified in Semantic Versioning (spec v2.0.0)",
+      "type": "string"
+    },
+    "mod": {
+      "description": "The mod object contains metadata and download path",
+      "type": "object",
+      "properties": {
+        "download": {
+          "description": "The URL to a mod download in jar format",
+          "type": "string"
+        },
+        "meta": {
+          "$ref": "#/$defs/metadata"
+        }
+      },
+      "required": ["download", "meta"]
+    }
+  }
+}
